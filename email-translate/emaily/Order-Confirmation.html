@@ -1,0 +1,30 @@
+<p>Děkujeme za vaší objednávku v obchodě {{ shop_name }}!</p>
+<p>Tento email je potvrzením vaší objednávky</p>
+<p>Datum {{ date | date: "%m/%d/%Y" }}</p>
+{% if requires_shipping and shipping_address %}
+<p><b>Adresa doručení</b><br />
+{{ shipping_address.name }}<br />
+{{ shipping_address.street }}<br />
+{{ shipping_address.city }}<br />
+{{ shipping_address.province }}
+{{ shipping_address.zip }}<br />
+{{ shipping_address.country }}</p>
+{% endif %}
+{% if billing_address %}
+<p><b>Fakturační adresa</b><br />
+{{ billing_address.name }}<br />
+{{ billing_address.street }}<br />
+{{ billing_address.city }}<br />
+{{ billing_address.province }}
+{{ billing_address.zip }}<br />
+{{ billing_address.country }}</p>
+{% endif %}
+<ul style="list-style-type:none">  {% for line in line_items %} <li> <img src="{{ line | img_url: 'small' }}" /> {{ line.quantity }}x {{ line.title }} za {{ line.price | money }} kus- </li> {% endfor %}
+</ul>
+{% if discounts %}
+<p>Sleva : {{ discounts_savings | money_with_currency }}</p> {% endif %}
+<p>Mezisoučet : {{ subtotal_price | money_with_currency }}</p>
+{% for tax_line in tax_lines %} <p>DPH : {{ tax_line.price | money_with_currency }} </p>
+{% endfor %} {% if requires_shipping %}
+<p>Poštovné: {{ shipping_price | money_with_currency }}</p>
+{% endif %} <p>Total : {{ total_price | money_with_currency }}</p>

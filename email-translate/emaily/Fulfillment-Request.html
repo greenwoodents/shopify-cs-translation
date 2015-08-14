@@ -1,0 +1,38 @@
+<p>{{ service_name }},</p>
+<br>
+<p>Připravte objednávku {{ name }}.</p>
+<p>Celkový počet předmětů: {{ fulfillment.item_count }}</p>
+<p>Unikátní předměty: {{ fulfillment.fulfillment_line_items.size }}</p>
+<br>
+<p><strong>Předměty k připravení:</strong></p>
+{% for line in fulfillment.fulfillment_line_items %}
+  <p>Varianta: {{ line.line_item.title }}</p>
+  <p>SKU: {{ line.line_item.sku }}</p>
+  <p>Kvantita: {{ line.quantity }}</p>
+  <p>Gramy: {{ line.line_item.grams }}</p>
+  <p>Prodejce: {{ line.line_item.vendor }}</p>
+{% endfor %}
+{% if shipping_address %}
+<br>
+<p><strong>Adresa dodání:</strong></p>
+<p>{{ shipping_address.name }}{% if shipping_address.company %}
+  {{ shipping_address.company }}{% endif %}</p>
+<p>{{ shipping_address.address1 }}</p>
+<p>{{ shipping_address.address2 }}</p>
+<p>{{ shipping_address.city }}, {{ shipping_address.province }}</p>
+<p>{{ shipping_address.zip }}</p>
+<p>{{ shipping_address.country }}</p>
+{% if shipping_address.phone %}<p>Phone: {{ shipping_address.phone }}</p>{% endif %}
+{% endif %}
+<br>
+<p><strong>Metoda odeslání:</strong></p>
+<p>{% if shipping_method %}{{ shipping_method.title }}{% else %}Není{% endif %}</p>
+<br>
+<p><strong>Číslo ke sledování objednávky:</strong></p>
+<p>{% if fulfillment.tracking_number %}{{ fulfillment.tracking_number }}{% else %}Není{% endif %}</p>
+<br>
+<p><strong>Email zakazníka:</strong></p>
+<p>{{ email }}</p>
+<br>
+<p>Děkujeme,</p>
+<p>{{ shop_name }}</p>

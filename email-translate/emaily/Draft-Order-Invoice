@@ -1,0 +1,41 @@
+Faktura {{name}} od {{ shop_name }}
+
+{{ date | date: "%B %-d, %Y" }}
+
+Chcete-li zaplatit objednávku, přejděte na tento zabezpečený platební odkaz: {{ invoice_url }}{% if reserve_inventory_until %}
+
+{% if item_count > 1 %}Tyto položky{% else %}Tato položka {% endif %} Pro vás budou vyhrazeny do {{ reserve_inventory_until | date: "%B %-d, %Y at %I:%M %p %Z" }}.{% endif %}
+
+Souhrn
+
+{% for line in line_items %}{{ line.quantity }} x {{line.title }} za {{ line.price | money_with_currency }} {% if line.applied_discounts.size > 0 %}(původní cena {{ line.original_price | money_with_currency }}) {% endif %}each
+{% endfor %}
+Mezisoučet: {{ subtotal_price | money_with_currency  }}{% if discounts %}
+Sleva{% if discounts.first.code %} ({{ discounts.first.code }}){% endif %}: - {{ discounts_amount | money_with_currency }}{% endif %}
+{% for tax_line in tax_lines %}
+DPH: {{ tax_line.price | money_with_currency  }}
+{% endfor %}
+{% if requires_shipping %}
+Poštovné: {{ shipping_price | money_with_currency }}
+{% endif %}
+
+
+Amount due: {{ total_price | money_with_currency }}{% if requires_shipping and shipping_address %}
+
+Adresa doručení {% if shipping_address.name %}
+  {{ shipping_address.name }}{% endif %}{% if shipping_address.street %}
+  {{ shipping_address.street }}{% endif %}{% if shipping_address.city or shipping_address.province or shipping_address.zip %}
+  {% if shipping_address.city %}{{ shipping_address.city }}, {% endif %}{% if shipping_address.province %}{{ shipping_address.province }} {% endif %}{% if shipping_address.zip %}{{ shipping_address.zip }}{% endif %}{% endif %}{% if shipping_address.country %}
+  {{ shipping_address.country }}{% endif %}{% endif %}{% if billing_address %}
+
+Fakturační adresa {% if billing_address.name %}
+  {{ billing_address.name }}{% endif %}{% if billing_address.street %}
+  {{ billing_address.street }}{% endif %}{% if billing_address.city or billing_address.province or billing_address.zip %}
+  {% if billing_address.city %}{{ billing_address.city }}, {% endif %}{% if billing_address.province %}{{ billing_address.province }} {% endif %}{% if billing_address.zip %}{{ billing_address.zip }}{% endif %}{% endif %}{% if billing_address.country %}
+  {{ billing_address.country }}{% endif %}{% endif %}
+
+
+Děkujeme Vám za nákup v {{ shop_name }}!
+
+-
+Odesláno pomocí Shopify (http://www.shopify.com)

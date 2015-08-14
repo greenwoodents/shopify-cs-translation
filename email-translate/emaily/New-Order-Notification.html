@@ -1,0 +1,26 @@
+<p>Dobrý den {{ shop_name }},</p>
+<p></p>
+<p>{% if customer.name %}{{ customer.name }}{% else %}Někdo{% endif %} Vytvořil novou objednávku ve vašem obchodě, {{ date | date: "%b %d %I:%M%p" }}:</p>
+<p></p>
+<ul>  {% for line in line_items %} <li> <img src="{{ line | img_url: 'thumb' }}" /> {{ line.quantity }}x {{ line.title }} za {{ line.price | money }} každý </li> {% endfor %} </ul>
+<a href="https://{{ shop.permanent_domain }}/admin/orders/{{ id }}">Zborazit objednávku {{order_name}} </a>
+{% if fulfillment_aborted %}
+<p>Objednávka nebyla automaticky vyřízena protože byla označena jako podezdřelá.</p>{% endif %}
+<p></p><br>
+{% if has_high_risks? %}<p><b>Kontrola:</b></p>
+<p>Tato objednávka byla označená jako možný podpovd. Zkontrolujte tuto objednávku prosím ve vaší administraci a kontaktujte zakazníka pro oveření.</p>
+<p></p>{% endif %}
+<p><b>Metoda platby:</b></p>
+<p>{{ gateway }}</p>
+<p></p>
+{% if requires_shipping and shipping_address %}
+<p><b>Metoda doručení:</b></p>
+{% for shipping_method in shipping_methods %}<p>{{ shipping_method.title }}</p>{% endfor %}
+<p></p>
+<p><b>Shipping address:</b></p>
+<p>{{ shipping_address.name }}</p>
+<p>{{ shipping_address.street }}</p>
+<p>{{ shipping_address.city }}, {{ shipping_address.province }}  {{ shipping_address.zip }}</p>
+<p>{{ shipping_address.country }}</p>
+<p>{{ shipping_address.phone }}{% endif %}</p>
+<p></p>

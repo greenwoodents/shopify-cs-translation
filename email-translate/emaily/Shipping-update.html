@@ -1,0 +1,16 @@
+{% if billing_address.name %}
+<p>Dobrý den {{ billing_address.name }},</p>
+{% endif %}
+
+<p>Následující předměty z objednávky {{ name }} změnily adresu doručení</p>
+
+<ul style="list-style-type:none">
+  {% for line in fulfillment.fulfillment_line_items %}<li>
+    <img src="{{ line.line_item | img_url: 'small' }}" />
+    {{ line.quantity }}x {{ line.line_item.title }}
+  </li>{% endfor %}
+</ul>
+
+<p>Budou poslány {% if fulfillment.tracking_company %} pomocí {{ fulfillment.tracking_company }}{% endif %} číslo pro sledování objednávky {{ fulfillment.tracking_number }}. <a href="{{ fulfillment.tracking_url }}">Klikněte zde pro status objednávky</a>.</p>
+
+<p>Korektní zobrazení statusu chvíly trvá. Nepanikařte.</p>

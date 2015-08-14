@@ -1,0 +1,11 @@
+{% if customer.name %}
+<p> Dobrý den {{ customer.name }}, </p>
+<p> </p>
+{% Endif%}
+<p>Váš účet v obchodě {{ shop.name }} byl vytvořen.</p>
+<p></p>
+<p>Navštivte prosím URL níže k aktivaci svého účtu a nastavení hesla.</p>
+<p></p>
+<p>{{ customer.account_activation_url }}</p>
+<p> </p>
+<p>Pokud byl účet vytvořen omylem, můžete navštívit uvedený odkaz a odmítout pozvánku.</p>

@@ -1,0 +1,15 @@
+<p>Dorý den{% if billing_address.name %} {{ billing_address.name }}{% endif %},</p>
+<p> </p>
+<p> Váš nákupní košík v obchodě {{ shop_name }} byl rezervován a čeká na váš návrat! </p>
+<p> </p>
+<p> V košíku, jste nechal:</p>
+<p> </p>
+<p> {% for line in line_items%} {{}} line.quantity x {{line.title}} {% endfor%} </p>
+<p> </p>
+<p> Chcete-li dokončit nákup, klikněte na tento odkaz: </p>
+<p> </p>
+<p> {{url}} </p>
+<p> </p>
+<p> Díky za nákup! </p>
+<p></p>
+<p>{{ shop_name }}</p>
