@@ -1,4 +1,4 @@
-##Český překlad shopify
+##Český překlad shopify šablony a procesu platby
 Překlad obsahuje přeloženou základní šablonu, objednávkový proces a dostupné systémové věci k překladu.
 
 ##Instalace
