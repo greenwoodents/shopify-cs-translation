@@ -1,4 +1,4 @@
-##Český překlad shopify
+##Český překlad Shopify
 Překlad obsahuje přeloženou základní šablonu a dostupné systémové věci společně s procesem platby a notifikačnímy emaily. Více společně s postupem instalace se dozvíte v adresářích tohoto projektu.
 
 ##Našel jsme chybu

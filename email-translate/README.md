@@ -1,5 +1,5 @@
-##Český překlad shopify emailů.
-Překlad obsahuje přeložené všechny emaily dostupné v administraci shopify.
+##Český překlad Shopify emailů.
+Překlad obsahuje přeložené všechny emaily dostupné v administraci Shopify.
 
 ##Instalace
 1. Přihlaste se do administrace vašeho obchodu na Shopify.
