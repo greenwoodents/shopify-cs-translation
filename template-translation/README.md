@@ -9,9 +9,9 @@ Překlad obsahuje přeloženou základní šablonu, objednávkový proces a dost
 
 3. Zde budou zobrazeny vaše stažené šablony, u šablony u které chcete použít náš překlad klikněte na tlačítko více a z výsuvného menu klikněte na “Edit CSS/HTML”.
 
-4. Zde najděte složku Locales, buďto pomocí vyhledavání, nebo scrolujte níže.
+4. Zde najděte složku “Locales”, buďto pomocí vyhledavání, nebo scrolujte níže.
 
-5. Složky otevřete a klikněte na "Add a new locale".
+5. Složku otevřete a klikněte na "Add a new locale".
 
 6. V novém okně zvolte `scratch` a soubor nazvěte `cs.json`.
 
@@ -20,13 +20,20 @@ Překlad obsahuje přeloženou základní šablonu, objednávkový proces a dost
 ###Před zveřejněním
 Před zveřejním je ještě nutné zkontrolvoat zda je šablona kompletně přeložean protože naš překlad obsahuje přeložení pouze zakladních věcí, nekteré šablony mohou mít pole navíc od vývojařů.
 
-Kotrolu provedete jednodueš:
+Kotrolu provedete jednoduše:
 
 1. V skeci “Themes”, klikněte na taláčítko “více” z vysouvacího menu poté zvolte “edit language”.
 
 2. Pokud nevidíte chybu “the language is incomplete”. Je vše v pořádku. Pokud ji vidíte, lze si po kliku na “filter this page” vyfiltrovat chybějící překlad a do překládat co chybí.
 
 **Je důležité mít překlad kompletní!** V případě že nebude, nebo jej ani nenahradíte anglickým textem bude se na webu zobrazovat nesmyslný text.
+
+##Zveřejnění
+Pokud jste zkontrolovali uplnost překladu.
+
+1. V skeci “Themes”, klikněte na taláčítko “více” z vysouvacího menu poté zvolte “edit language”.
+
+2. V pravém horním menu klikněte "Change theme language" z vysovoacího menu pot zvolte “Czech”.
 
 
 ##Našel jsme chybu
