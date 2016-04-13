@@ -510,7 +510,7 @@
         "customer_does_not_meet_discount_requirements_notice": "Informace o zákaznících nesplňuje požadavky pro {{ kód }} slevový kód",
         "shipping_information_does_not_meet_discount_requirements_notice": "Přepravní informace nesplňuje požadavky pro {{ kód }} slevový kód",
         "payment_due_label": "Splatnosti",
-        "vat_label_html": "Včetně {{ částka }} daní",
+        "vat_label_html": "Včetně DPH",
         "discount_and_gift_card_savings_notice": "Po {{ discount_amount }} ve slevách a {{ gift_card_amount }} v dárkové karty",
         "discount_savings_notice": "Po {{ discount_amount }} v slevami",
         "gift_card_savings_notice": "Po {{ gift_card_amount }} v dárkové karty",
