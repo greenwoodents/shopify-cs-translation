@@ -2,13 +2,13 @@
   {% capture shipment_name %}Vaše objednávka je{% endcapture %}
 {% elsif fulfillment.item_count > 1 %}
   {% if fulfillment_status == 'fulfilled' %}
-    {% capture shipment_name %}Zbývající produkty ve vaší objednávce jsou{% endcapture %}
+    {% capture shipment_name %}Produkty ve vaší objednávce jsou{% endcapture %}
   {% else %}
     {% capture shipment_name %}Některé produkty ve vaší objednávce jsou{% endcapture %}
   {% endif %}
 {% else %}
   {% if fulfillment_status == 'fulfilled' %}
-    {% capture shipment_name %}Poslední produkt ve vaší objednávce je{% endcapture %}
+    {% capture shipment_name %}Zboží ve Vaší objednávce jsou {% endcapture %}
   {% else %}
     {% capture shipment_name %}Jeden produkt ve vaší objednávce je{% endcapture %}
   {% endif %}
@@ -123,7 +123,7 @@
         <table class="container">
           <tr>
             <td>
-              <h3>V zásilce</h3>
+              <h3>Zásilka obsahuje</h3>
             </td>
           </tr>
         </table>
@@ -153,7 +153,7 @@
           {% endif %}
         </td>
         <td class="order-list__product-description-cell">
-          <span class="order-list__item-title">{{ line.line_item.title }} × {{ line.line_item.quantity }}</span><br/>
+          <span class="order-list__item-title">{{ line.line_item.title }} × {{ line.line_item.quantity }}</span><br/>
           {% if line.line_item.variant.title != 'Default Title' %}
             <span class="order-list__item-variant">{{ line.line_item.variant.title }}</span>
           {% endif %}
